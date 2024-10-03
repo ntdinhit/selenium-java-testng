@@ -151,10 +151,13 @@ public class Topic_02_Locator {
         driver.findElement(By.xpath("//a[text()='Addresses']"));
 
         // XPath vs Partial Link
-        // Xpath không support với ends-with (Css có)
+
         driver.findElements(By.xpath("//a[starts-with(@href,'/customer')]"));
         driver.findElement(By.xpath("//a[contains(@href,'addresses')]"));
         driver.findElement(By.xpath("//a[contains(text(),'Addresses')]"));
+
+        // Xpath không support với ends-with (Css có)
+        //driver.findElements(By.xpath("//a[ends-with(@href,'/customer')]"));
     }
 
     @AfterClass
