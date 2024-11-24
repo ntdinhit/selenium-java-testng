@@ -17,6 +17,7 @@ public class Topic_03_Relative_Locator {
     public void beforeClass() {
         driver = new FirefoxDriver();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
+        driver.manage().window().maximize();
     }
 
     @Test
@@ -62,7 +63,7 @@ public class Topic_03_Relative_Locator {
 
 
     @AfterClass
-    public void beforeClase() {
+    public void afterClass() {
         driver.quit();
     }
 }

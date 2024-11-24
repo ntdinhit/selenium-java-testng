@@ -21,21 +21,14 @@ public class Topic_05_WebBrowser_Commands {
         //Tương tác với browser thông qua biến driver
         driver = new FirefoxDriver();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
+        driver.manage().window().maximize();
     }
 
     @Test
-    public void TC_01_Browser() {
+    public void TC_01_Browser() throws MalformedURLException {
         //Mở ra 1 URL bất kì
         driver.get("https://live.techpanda.org/");
-    }
 
-    @Test
-    public void TC_02() {
-
-    }
-
-    @AfterClass
-    public void beforeClase() throws MalformedURLException {
         //Đóng browser - tất cả tab/window
         driver.quit();
 
@@ -129,5 +122,15 @@ public class Topic_05_WebBrowser_Commands {
         //Mở 1 URL mới
         driver.navigate().to("https://live.techpanda.org/");
         driver.navigate().to(new URL("https://live.techpanda.org/"));
+    }
+
+    @Test
+    public void TC_02() {
+
+    }
+
+    @AfterClass
+    public void afterClass() {
+        driver.quit();
     }
 }

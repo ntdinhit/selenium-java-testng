@@ -100,7 +100,7 @@ public class Topic_07_WebBrowser_Excercise {
     }
 
     @AfterClass
-    public void beforeClase() {
+    public void afterClass() {
         driver.quit();
     }
 }

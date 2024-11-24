@@ -16,6 +16,7 @@ public class Topic_00_Template {
     public void beforeClass() {
         driver = new FirefoxDriver();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
+        driver.manage().window().maximize();
     }
 
     @Test
@@ -29,7 +30,7 @@ public class Topic_00_Template {
     }
 
     @AfterClass
-    public void beforeClase() {
+    public void afterClass() {
         driver.quit();
     }
 }

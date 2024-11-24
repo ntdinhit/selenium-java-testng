@@ -16,6 +16,8 @@ public class Topic_06_WebElement_Commands {
     @BeforeClass
     public void beforeClass() {
         driver = new FirefoxDriver();
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
+        driver.manage().window().maximize();
     }
 
     @Test
@@ -124,7 +126,7 @@ public class Topic_06_WebElement_Commands {
     }
 
     @AfterClass
-    public void beforeClase() {
+    public void afterClass() {
         driver.quit();
     }
 }
