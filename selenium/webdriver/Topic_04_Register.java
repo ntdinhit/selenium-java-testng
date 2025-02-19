@@ -15,7 +15,7 @@ public class Topic_04_Register {
     WebDriver driver;
 
     @BeforeClass
-    public void beforeClass() {
+    public void initBrowser() {
         driver = new FirefoxDriver();
         //driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
@@ -166,7 +166,7 @@ public class Topic_04_Register {
     }
 
     @AfterClass
-    public void afterClass() {
+    public void clearBrowser() {
         driver.quit();
     }
 }

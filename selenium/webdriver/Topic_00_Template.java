@@ -13,15 +13,16 @@ public class Topic_00_Template {
     WebDriver driver;
 
     @BeforeClass
-    public void beforeClass() {
+    public void initBrowser() {
         driver = new FirefoxDriver();
+
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
         driver.manage().window().maximize();
     }
 
     @Test
     public void TC_01() {
-        driver.get("https://www.facebook.com/");
+        driver.get("");
     }
 
     @Test
@@ -30,7 +31,7 @@ public class Topic_00_Template {
     }
 
     @AfterClass
-    public void afterClass() {
+    public void clearBrowser() {
         driver.quit();
     }
 }

@@ -14,7 +14,7 @@ public class Topic_06_WebElement_Commands {
     WebDriver driver;
 
     @BeforeClass
-    public void beforeClass() {
+    public void initBrowser() {
         driver = new FirefoxDriver();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
         driver.manage().window().maximize();
@@ -126,7 +126,7 @@ public class Topic_06_WebElement_Commands {
     }
 
     @AfterClass
-    public void afterClass() {
+    public void clearBrowser() {
         driver.quit();
     }
 }

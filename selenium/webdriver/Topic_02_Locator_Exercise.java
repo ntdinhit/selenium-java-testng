@@ -12,7 +12,7 @@ public class Topic_02_Locator_Exercise {
     WebDriver driver;
 
     @BeforeClass
-    public void beforeClass() {
+    public void initBrowser() {
         driver = new FirefoxDriver();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
         driver.manage().window().maximize();
@@ -108,7 +108,7 @@ public class Topic_02_Locator_Exercise {
     }
 
     @AfterClass
-    public void afterClass() {
+    public void clearBrowser() {
         driver.quit();
     }
 }

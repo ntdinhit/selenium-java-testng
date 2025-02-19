@@ -14,7 +14,7 @@ public class Topic_10_Textbox_TextArea {
     WebDriver driver;
 
     @BeforeClass
-    public void beforeClass() {
+    public void initBrowser() {
         driver = new FirefoxDriver();
 
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
@@ -163,7 +163,7 @@ public class Topic_10_Textbox_TextArea {
     }
 
     @AfterClass
-    public void afterClass() {
+    public void clearBrowser() {
         driver.quit();
     }
 }

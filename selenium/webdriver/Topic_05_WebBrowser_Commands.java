@@ -17,7 +17,7 @@ public class Topic_05_WebBrowser_Commands {
     WebDriver driver;
 
     @BeforeClass
-    public void beforeClass() {
+    public void initBrowser() {
         //Tương tác với browser thông qua biến driver
         driver = new FirefoxDriver();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
@@ -130,7 +130,7 @@ public class Topic_05_WebBrowser_Commands {
     }
 
     @AfterClass
-    public void afterClass() {
+    public void clearBrowser() {
         driver.quit();
     }
 }
