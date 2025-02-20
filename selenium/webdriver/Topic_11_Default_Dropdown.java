@@ -17,6 +17,11 @@ public class Topic_11_Default_Dropdown {
     Select select;
     @BeforeClass
     public void initBrowser() {
+//      EdgeOptions edgeOptions = new EdgeOptions();
+//      edgeOptions.addArguments("--user-data-dir=C:/Users/thanh/AppData/Local/Microsoft/Edge/User Data/");
+//      edgeOptions.addArguments("--profile-directory=Profile 3");
+//      driver = new EdgeDriver(edgeOptions);
+
         driver = new FirefoxDriver();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
         driver.manage().window().maximize();
@@ -49,6 +54,7 @@ public class Topic_11_Default_Dropdown {
 //        Assert.assertTrue(districtText.contains("thị xã La Gi"));
 //        Assert.assertTrue(districtText.contains("huyện Bắc Bình"));
     }
+
     @Test
     public void TC_02_Demo_Ecommerce() throws InterruptedException {
         driver.get("https://demo.nopcommerce.com/register");
@@ -82,6 +88,32 @@ public class Topic_11_Default_Dropdown {
         Assert.assertEquals(new Select(driver.findElement(By.cssSelector("select[name='DateOfBirthYear']"))).getFirstSelectedOption().getText(), year);
         Thread.sleep(4000);
     }
+
+    @Test
+    public void TC_03_Rode() throws InterruptedException {
+        String country = "Vietnam";
+        String city = "HO CHI MINH";
+
+        driver.get("https://rode.com/en/support/where-to-buy");
+        Thread.sleep(10000);
+
+        Assert.assertFalse(new Select(driver.findElement(By.cssSelector("select#country"))).isMultiple());
+
+        new Select(driver.findElement(By.cssSelector("select#country"))).selectByVisibleText(country);
+        Thread.sleep(3000);
+
+        driver.findElement(By.cssSelector("input#map_search_query")).sendKeys(city);
+        driver.findElement(By.xpath("//button[text()='Search']")).click();
+        Thread.sleep(10000);
+
+        List<WebElement> dealersBranches = driver.findElements(By.xpath("//h3[text()='Dealers']/following-sibling::div//h4"));
+        Assert.assertEquals(dealersBranches.size(), 16);
+
+        for(WebElement dealersName : dealersBranches){
+            System.out.println(dealersName.getText());
+        }
+    }
+
     @AfterClass
     public void clearBrowser() {
         driver.quit();
